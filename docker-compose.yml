@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16.1
+    environment:
+      POSTGRES_USER: dmytro
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: home-work-db
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
